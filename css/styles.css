@@ -105,11 +105,22 @@ img {
   margin-left: 93px;
 }
 .link-active {
+  position: relative;
   display: block;
   color: var(--accent-color);
   text-decoration: none;
   padding-top: 32px;
   padding-bottom: 32px;
+}
+.link-active::after {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  display: flex;
+  width: 100%;
+  height: 4px;
+  border-radius: 2px;
+  background-color: var(--accent-color);
 }
 
 .link:hover,
@@ -119,10 +130,12 @@ img {
 .contacts-footer:hover,
 .contacts-footer:focus {
   color: var(--accent-color);
+  transition: 250ms;
 }
 .map:hover,
 .map:focus {
   color: var(--accent-color);
+  transition: 250ms;
 }
 .button:hover,
 .button:focus {
@@ -131,6 +144,7 @@ img {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   border-radius: 4px;
+  transition: 250ms;
 }
 
 .contacts {
@@ -170,6 +184,7 @@ img {
 .header-svg:hover,
 .header-svg:active {
   fill: var(--accent-color);
+  transition: 250ms;
 }
 
 /* оформление main-section */
@@ -210,8 +225,47 @@ img {
   background-color: #188ce8;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
+  transition: 250ms;
 }
+/* оформление модального окна */
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  background-color: rgba(229, 229, 229, 0.5);
+}
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 528px;
+  min-width: 581px;
+  padding: 15px;
+  background-color: var(--bg-white-color);
+}
+.button-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  margin-top: 8px;
+  margin-right: 8px;
+  border-radius: 50%;
+  fill: currentColor;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
 /* оформление секции преимуществ */
 
 .feature {
@@ -302,7 +356,27 @@ img {
   width: 370px;
   height: 294px;
 }
+.item-picture {
+  position: relative;
+}
+.picture-descr {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding: 27px;
+  margin-top: 0;
+  margin-bottom: 0;
+  font-weight: 700;
+  line-height: 1.14;
+  text-align: center;
+  text-transform: uppercase;
+  color: var(--bg-white-color);
+  background-color: rgba(47, 48, 58, 0.8);
+}
 
+/* .item {
+  outline: 1px solid red;
+} */
 .container {
   margin: 0 auto;
   padding-left: 15px;
@@ -333,10 +407,6 @@ img {
 .personal .photo-list:last-child {
   margin-right: 0;
 }
-
-/* .item {
-  outline: 1px solid red;
-} */
 
 .photo {
   margin-top: 0;
@@ -409,6 +479,7 @@ img {
 .networks-link:active {
   color: var(--bg-white-color);
   background-color: var(--accent-color);
+  transition: 250ms;
 }
 
 /* оформление секции клиенты */
@@ -429,6 +500,7 @@ img {
 .client-logo:hover,
 .client-logo:active {
   border-color: var(--accent-color);
+  transition: 250ms;
 }
 .client-logo:last-child {
   margin-right: 0;
@@ -447,6 +519,7 @@ img {
 .client-items:active {
   color: var(--accent-color);
   background-color: var(--bg-white-color);
+  transition: 250ms;
 }
 .client-icons {
   width: 106px;
@@ -544,6 +617,7 @@ img {
 .networks-list:active {
   color: var(--bg-white-color);
   background-color: var(--accent-color);
+  transition: 250ms;
 }
 .networks-item {
   /* padding: 0; */
@@ -562,6 +636,7 @@ img {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
   cursor: pointer;
+  transition: 250ms;
 }
 .portfolio > .portfolio-list {
   margin-top: 0;
@@ -603,6 +678,7 @@ img {
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
   color: var(--bg-white-color);
+  transition: 250ms;
 }
 .list-radio {
   /* margin-top: 0; */
@@ -649,4 +725,29 @@ img {
   border-bottom: 1px solid #EEEEEE;
   border-left: 1px solid #EEEEEE; */
   /* outline: 1px solid red; */
+}
+.image-descr {
+  position: relative;
+}
+/* может сделать через псевдоэлемент???? */
+/* может сделать через псевдоэлемент???? */
+/* может сделать через псевдоэлемент???? */
+/* может сделать через псевдоэлемент???? */
+.portfolio-descr {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  margin-top: 0;
+  margin-bottom: 0;
+  padding: 63px 24px;
+  height: 100%;
+  font-size: 18px;
+  line-height: 1.56;
+  color: var(--bg-white-color);
+  background-color: rgba(33, 150, 243, 0.9);
+}
+.portfolio-descr:hover {
+  opacity: 0.9;
+  transition: 250ms;
 }
